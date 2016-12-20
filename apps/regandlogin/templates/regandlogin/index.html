@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register and login</title>
+        {% load staticfiles  %}
+        <link rel="stylesheet" href="{% static 'regandlogin/css/styles.css' %}">
+    </head>
+    <body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Welcome!</h1>
+        <div class="register">
+            <form action="{% url 'rnl:rnl_register' %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Register</legend>
+                        <label>
+                            <p class='name'>Name:</p>
+                            <input type="text" name="name">
+                        </label>
+                        <label>
+                            <p class ='alias'> Alias:</p>
+                            <input type="text" name="alias">
+                        </label>
+                        <label>
+                            <p class ='email'>Email:</p>
+                            <input type="text" name="email">
+                        </label>
+                        <label>
+                            <p class ='pw'>Password:</p>
+                            <input type="password" name="password">
+                        </label>
+                        <p class='pwtext'>*Password should be at least 8 Characters</p>
+                        <label>
+                            <p class ='conpw'>Confirm PW:</p>
+                            <input type="password" name="conpassword">
+                        </label>
+                        <label>
+                            <p class ='bday'>Birthday:</p>
+                             <input type="date">
+                        </label>
+                        <input class='regbut' type="submit" value="Register">
+                </fieldset>
+            </form>
+        </div>
+        <div class="login">
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Login</legend>
+                        <label>
+                            <p class = 'email'> Email:</p>
+                            <input type="text" name="email">
+                        </label>
+                        <label>
+                            <p class = 'logpw'>Password:</p>
+                            <input type="password" name="password">
+                        </label>
+                        <input class = 'logbut' type="submit" value="Login">
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+/**{
+    outline: 1px solid red;
+}*/
+
+.register{
+    display: inline-block;
+    width: 250px;
+}
+
+.login{
+    display: inline-block;
+    width: 250px;
+    vertical-align: top;
+}
+
+.pwtext{
+    font-size: 11px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.name, .alias, .email, .pw, .conpw,.bday, .email, .logpw{
+    display: inline-block;
+}
+
+.name{
+    margin-right: 43px;
+}
+
+.alias{
+    margin-right: 47px;
+}
+
+.email{
+    margin-right: 43px;
+}
+
+.pw{
+    margin-right: 18px;
+}
+
+.bday{
+    margin-right: 17px;
+}
+
+.email{
+    margin-right: 40px;
+}
+
+.logpw{
+    margin-right: 17px;
+}
+
+.regbut{
+    margin-left: 155px;
+}
+
+.logbut{
+    margin-left: 165px;
+}

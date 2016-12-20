@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>User</title>
+        {% load staticfiles  %}
+        <link rel="stylesheet" href="{% static 'quotes/css/styles2.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <p><a href="{% url 'quotes:quotes_index' %}">dashboard</a> | <a href="{% url 'rnl:rnl_logout' %}">Logout</a></p>
+            </header>
+            <p>Post by {{users.name}}</p>
+            <p>Count: {{quotesmade.count}}</p>
+            {% for quote in quotesmade %}
+                <p><span>{{quote.author}}:</span> {{quote.text}}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html

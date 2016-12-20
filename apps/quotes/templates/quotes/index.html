@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quotes</title>
+        {% load staticfiles  %}
+        <link rel="stylesheet" href="{% static 'quotes/css/styles.css' %}">
+    </head>
+    <body>
+        <div class="container">
+                <a class='logout' href="{% url 'rnl:rnl_logout' %}">Logout</a>
+                <h1>Welcome, {{request.session.name}}!</h1>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p>Quoteable Quotes</p>
+            <div class="otherquotes">
+                <ul>
+                {% for quote in otherquotes %}
+                    <li class='listquote'><p>{{quote.author}}: {{quote.text}}</p> <p class='postedby'>Posted by <a href="{% url 'quotes:quotes_userpage' id=quote.user.id %}">{{quote.user.name}}</a></p><a class ='addbut' href="{% url 'quotes:quotes_addfave' id=quote.id %}">Add to my list</a></li>
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="myfavorites">
+                <fieldset>
+                    <legend>Your favorite</legend>
+                    <ul>
+                    {% for quote in myquotes %}
+                        <li class='listquote'><p>{{quote.author}}: {{quote.text}}</p> <p class='postedby'>Posted by <a href="{% url 'quotes:quotes_userpage' id=quote.user.id %}">{{quote.user.name}}</a></p><a class = 'removebut' href="{% url 'quotes:quotes_removefave' id=quote.id %}">Remove from my list</a></li>
+                    </ul>
+                    {% endfor %}
+                </fieldset>
+            </div>
+            <div class="create">
+                <h3>Contribute a Quote:</h3>
+                <form action="{% url 'quotes:quotes_create' %}" method="post">
+                    {% csrf_token %}
+                    Quoted by: <input type="text" name="author">
+                    Message: <input type="text" name="message">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

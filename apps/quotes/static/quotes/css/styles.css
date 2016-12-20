@@ -1,0 +1,48 @@
+/**{
+    outline: 1px solid red;
+}*/
+.container{
+    width:1200px;
+}
+
+.logout{
+    margin-left: 1150px;
+}
+
+.listquote{
+    list-style: none;
+    border: 1px solid black;
+}
+
+ul{
+    overflow: scroll;
+    list-style: none;
+}
+
+.otherquotes{
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+}
+
+.myfavorites{
+    width: 400px;
+    display: inline-block;
+}
+
+.addbut{
+    border: 1px solid black;
+    display: inline-block;
+    margin-left: 60px;
+}
+
+.removebut{
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.postedby{
+    display: inline-block;
+    margin-right: 60px;
+}
